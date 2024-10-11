@@ -10,7 +10,6 @@ type CategoryIconProps = {
 
 export default function CategoryIcon({ category }: CategoryIconProps) {
   const params = useParams<{ category: string }>();
-  console.log(params);
   return (
     <div
       className={`${
@@ -20,10 +19,9 @@ export default function CategoryIcon({ category }: CategoryIconProps) {
       <div className="w-16 h-16 relative">
         <Image fill src={`/icon_${category.slug}.svg`} alt="Imagen Categoria" />
       </div>
-      <Link
-        className="text-xl font-bold"
-        href={`/order/${category.slug}`}
-      ></Link>
+      <Link className="text-xl font-bold" href={`/order/${category.slug}`}>
+        {category.name}
+      </Link>
     </div>
   );
 }
