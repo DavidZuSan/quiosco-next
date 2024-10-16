@@ -20,12 +20,12 @@ model Product {
   price Float
   image String
   categoryId  Int
-  category   Category @relation(fields: [categoryId], references: [id])
+  category  Category @relation(fields: [categoryId], references: [id])
   orderItems OrderProducts[]
 }
 
 model Order {
-  id      Int   @id   @default(autoincrement()) 
+  id      Int   @id   @default(autoincrement())
   name    String
   total   Float
   date    DateTime  @default(now())
@@ -33,9 +33,10 @@ model Order {
   orderReadyAt  DateTime?
   orderProducts OrderProducts[]
 }
+
 model OrderProducts {
-  id       Int  @id   @default(autoincrement())
-  orderId  Int
+  id      Int   @id   @default(autoincrement())
+  orderId Int
   order   Order @relation(fields: [orderId], references: [id])
   productId   Int
   product   Product @relation(fields: [productId], references: [id])
