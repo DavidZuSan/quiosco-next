@@ -23,6 +23,7 @@ export default function ProductNavigation({
 
       {pages.map((currentPage) => (
         <Link
+          key={currentPage}
           href={`/admin/products?page=${currentPage}`}
           className={`${
             page === currentPage ? "font-black bg-amber-400" : "bg-white"
